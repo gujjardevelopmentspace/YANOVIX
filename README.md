@@ -1,4 +1,5 @@
 # YANOVIX
+<<<<<<< HEAD
 
 Premium AI engineering & software development company site — AI Agents, Voice AI, Custom SaaS, and Enterprise Automation.
 
@@ -28,3 +29,6 @@ npm run dev
 - React
 - Tailwind CSS
 - Vite
+=======
+Premium AI agency website with interactive animations, enterprise UI/UX, AI service showcases, industry solutions, case studies, and a conversion-focused user experience.
+>>>>>>> ec303bb49970e98395f86901b83770caba10ba77
