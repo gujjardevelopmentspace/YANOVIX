@@ -511,26 +511,261 @@ function Nav() {
 }
 
 /* -------------------- hero -------------------- */
+/* -------------------- hero -------------------- */
+
+function AiSystemVisual() {
+  return (
+    <div className="card-ink relative aspect-[21/9] min-h-[180px] w-full overflow-hidden">
+      {/* ambient grid + glows, reusing your existing tokens */}
+      <div className="grid-ink pointer-events-none absolute inset-0 opacity-40" />
+      <div className="glow-sage absolute -left-[8%] -top-[6%] h-[75%] w-[46%] animate-glow-drift" />
+      <div
+        className="glow-ember absolute -right-[10%] -top-[4%] h-[85%] w-[52%] animate-glow-pulse opacity-70"
+        style={{ animationDelay: "2s" }}
+      />
+
+      {/* connecting beams */}
+      <svg
+        className="absolute inset-0 h-full w-full"
+        viewBox="0 0 1000 429"
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <linearGradient id="yvLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#F3EFE7" stopOpacity="0" />
+            <stop offset="50%" stopColor="#F3EFE7" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#E8753D" stopOpacity="0.8" />
+          </linearGradient>
+        </defs>
+
+        <path id="yvVoice" className="yv-conn" d="M195,105 Q400,58 596,214" />
+        <path id="yvAgent" className="yv-conn" d="M143,213 Q380,210 596,214" />
+        <path id="yvFlow" className="yv-conn" d="M220,310 Q420,296 596,222" />
+        <path id="yvDash" className="yv-conn" d="M792,92 Q690,150 606,205" />
+        <path id="yvCloud" className="yv-conn" d="M815,300 Q710,268 610,225" />
+        <path id="yvAnalytics" className="yv-conn" d="M605,358 Q605,290 602,232" />
+
+        <path className="yv-pulse" d="M195,105 Q400,58 596,214" />
+        <path
+          className="yv-pulse"
+          d="M143,213 Q380,210 596,214"
+          style={{ animationDelay: "-1.4s" }}
+        />
+        <path
+          className="yv-pulse"
+          d="M220,310 Q420,296 596,222"
+          style={{ animationDelay: "-2.6s" }}
+        />
+        <path
+          className="yv-pulse"
+          d="M792,92 Q690,150 606,205"
+          style={{ animationDelay: "-0.8s" }}
+        />
+        <path
+          className="yv-pulse"
+          d="M815,300 Q710,268 610,225"
+          style={{ animationDelay: "-3.4s" }}
+        />
+        <path
+          className="yv-pulse"
+          d="M605,358 Q605,290 602,232"
+          style={{ animationDelay: "-2s" }}
+        />
+
+        <circle r="2.4" fill="#F3EFE7">
+          <animateMotion dur="6s" repeatCount="indefinite">
+            <mpath href="#yvVoice" />
+          </animateMotion>
+        </circle>
+        <circle r="2.4" fill="#F3EFE7">
+          <animateMotion dur="7s" repeatCount="indefinite" begin="-2s">
+            <mpath href="#yvAgent" />
+          </animateMotion>
+        </circle>
+        <circle r="2.4" fill="#E8753D">
+          <animateMotion dur="6.5s" repeatCount="indefinite" begin="-3s">
+            <mpath href="#yvFlow" />
+          </animateMotion>
+        </circle>
+        <circle r="2.4" fill="#F3EFE7">
+          <animateMotion dur="5.5s" repeatCount="indefinite" begin="-1s">
+            <mpath href="#yvDash" />
+          </animateMotion>
+        </circle>
+        <circle r="2.4" fill="#7E9C82">
+          <animateMotion dur="7.5s" repeatCount="indefinite" begin="-4s">
+            <mpath href="#yvCloud" />
+          </animateMotion>
+        </circle>
+        <circle r="2.4" fill="#E8753D">
+          <animateMotion dur="5s" repeatCount="indefinite" begin="-2.5s">
+            <mpath href="#yvAnalytics" />
+          </animateMotion>
+        </circle>
+      </svg>
+
+      {/* floating ember dust, same feel as your SiteGlow particles */}
+      {[
+        { l: "20%", b: "10%", dur: "9s", delay: "0s" },
+        { l: "35%", b: "15%", dur: "11s", delay: "2s" },
+        { l: "48%", b: "8%", dur: "10s", delay: "4s" },
+        { l: "65%", b: "20%", dur: "12s", delay: "1s" },
+        { l: "72%", b: "6%", dur: "9.5s", delay: "5s" },
+        { l: "28%", b: "30%", dur: "13s", delay: "3s" },
+      ].map((p, i) => (
+        <span
+          key={i}
+          className="yv-particle absolute h-[3px] w-[3px] rounded-full bg-ember"
+          style={{ left: p.l, bottom: p.b, animationDuration: p.dur, animationDelay: p.delay }}
+        />
+      ))}
+
+      {/* core: real YANOVIX mark, breathing */}
+      <div className="absolute left-[60%] top-1/2 aspect-square w-[19%] -translate-x-1/2 -translate-y-1/2">
+        <div className="absolute inset-0 rounded-full border border-ivory/10" />
+        <div className="absolute inset-[14%] rounded-full border border-ember/20" />
+        <div className="absolute inset-[28%] rounded-full border border-sage/20" />
+        <div className="yv-breathe absolute inset-[8%] rounded-full bg-[radial-gradient(circle,rgba(232,117,61,0.42)_0%,rgba(232,117,61,0.10)_45%,transparent_72%)] blur-[6px]" />
+        <div className="yv-breathe absolute inset-[22%] flex items-center justify-center drop-shadow-[0_0_14px_rgba(232,117,61,0.55)]">
+          <YanovixLogo size="nav" />
+        </div>
+        <div className="yv-orbit-slow absolute -inset-[8%] rounded-full">
+          <span className="absolute left-1/2 top-0 h-[5px] w-[5px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-ivory shadow-[0_0_6px_1px_rgba(232,117,61,0.35)]" />
+        </div>
+        <div className="yv-orbit-rev absolute inset-[8%] rounded-full">
+          <span className="absolute left-1/2 top-0 h-[5px] w-[5px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-ember shadow-[0_0_6px_1px_rgba(232,117,61,0.35)]" />
+        </div>
+      </div>
+
+      {/* voice agent */}
+      <div className="yv-float-a absolute left-[10%] top-[16%] w-[14%] rounded-[13px] border border-ivory/8 bg-white/[0.03] p-3 backdrop-blur-md">
+        <div className="mb-1.5 flex items-center gap-1.5 text-[9px] uppercase tracking-[0.13em] text-ivory/55">
+          <span className="h-[5px] w-[5px] rounded-full bg-ember shadow-[0_0_6px_var(--tw-shadow-color)] shadow-ember/70 animate-pulse" />
+          <Phone className="h-2.5 w-2.5" /> Voice Agent
+        </div>
+        <div className="flex h-6 items-end gap-[3px]">
+          {[40, 70, 30, 85, 50, 65, 35].map((h, i) => (
+            <span
+              key={i}
+              className="yv-bar w-[3px] rounded-sm bg-gradient-to-b from-ember to-ember/20"
+              style={{ animationDelay: `${i * 0.15}s`, ["--yv-h" as string]: `${h}%` }}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* autonomous agent node */}
+      <div className="absolute left-[7%] top-[47%] aspect-square w-[4.6%]">
+        <div className="yv-breathe-rev absolute inset-0 rounded-full border border-sage/30" />
+        <div className="yv-breathe absolute inset-[20%] rounded-full bg-[radial-gradient(circle,rgba(126,156,130,0.9),rgba(126,156,130,0.15)_60%,transparent_80%)] shadow-[0_0_16px_4px_rgba(126,156,130,0.35)]" />
+      </div>
+
+      {/* workflow automation */}
+      <div className="yv-float-b absolute left-[11%] top-[70%] w-[17%]">
+        <div className="mb-1.5 flex items-center gap-1.5 text-[9px] uppercase tracking-[0.13em] text-ivory/55">
+          <Workflow className="h-2.5 w-2.5" /> Workflow
+        </div>
+        <div className="flex items-center gap-[9px]">
+          {[0, 1, 2, 3].map((i) => (
+            <div key={i} className="flex items-center gap-[9px]">
+              <span
+                className="yv-wnode relative h-[7px] w-[7px] rounded-full bg-ivory/25"
+                style={{ animationDelay: `${i * 0.7}s` }}
+              />
+              {i < 3 && <span className="h-px w-5 bg-ivory/15" />}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* enterprise dashboard, reusing your real metrics */}
+      <div className="yv-float-a absolute right-[8%] top-[13%] w-[17%] rounded-[13px] border border-ivory/8 bg-white/[0.03] p-3 backdrop-blur-md">
+        <div className="mb-1.5 flex items-center gap-1.5 text-[9px] uppercase tracking-[0.13em] text-ivory/55">
+          <span className="h-[5px] w-[5px] rounded-full bg-ember animate-pulse" />
+          <Building2 className="h-2.5 w-2.5" /> Enterprise
+        </div>
+        <div className="grid grid-cols-2 gap-x-2.5 gap-y-1.5">
+          <div>
+            <div className="text-sm font-semibold text-ivory">1,284</div>
+            <div className="text-[8px] uppercase tracking-wide text-ivory/40">Active Agents</div>
+            <div className="text-[9px] text-ember">+12.4%</div>
+          </div>
+          <div>
+            <div className="text-sm font-semibold text-ivory">97%</div>
+            <div className="text-[8px] uppercase tracking-wide text-ivory/40">Automations</div>
+            <div className="text-[9px] text-ember">+2.3%</div>
+          </div>
+        </div>
+      </div>
+
+      {/* cloud infra */}
+      <div className="absolute right-[7%] top-[64%] aspect-[1.3/1] w-[10.5%]">
+        <div className="yv-breathe absolute inset-0 border border-ivory/18 bg-white/[0.03] [clip-path:polygon(25%_6%,75%_6%,100%_50%,75%_94%,25%_94%,0%_50%)] flex items-center justify-center">
+          <Cloud className="h-3.5 w-3.5 text-ivory/50" />
+        </div>
+      </div>
+
+      {/* analytics */}
+      <div className="yv-float-a absolute left-[52%] top-[76%] w-[15%]">
+        <div className="mb-1 flex items-center gap-1.5 text-[9px] uppercase tracking-[0.13em] text-ivory/55">
+          <LineChart className="h-2.5 w-2.5" /> Analytics
+        </div>
+        <svg className="yv-spark h-[22px] w-full" viewBox="0 0 120 22">
+          <path
+            d="M0,16 L15,9 L30,13 L45,4 L60,11 L75,5 L90,15 L105,7 L120,11"
+            fill="none"
+            stroke="#E8753D"
+            strokeWidth="1.5"
+            strokeDasharray="4 6"
+            className="drop-shadow-[0_0_3px_rgba(232,117,61,0.6)]"
+          />
+        </svg>
+      </div>
+
+      {/* scoped keyframes for the pieces your global CSS doesn't already define */}
+      <style>{`
+        .yv-conn{fill:none;stroke:url(#yvLineGrad);stroke-width:1.3;opacity:.32;}
+        .yv-pulse{fill:none;stroke:#E8753D;stroke-width:1.5;stroke-dasharray:6 220;opacity:.9;
+          filter:drop-shadow(0 0 3px #E8753D);animation:yvFlow 5s linear infinite;}
+        @keyframes yvFlow{from{stroke-dashoffset:0;}to{stroke-dashoffset:-226;}}
+
+        .yv-particle{opacity:0;box-shadow:0 0 6px 1px rgba(232,117,61,.35);animation:yvRise linear infinite;}
+        @keyframes yvRise{0%{opacity:0;transform:translateY(0) scale(.6);}10%{opacity:.8;}85%{opacity:.4;}100%{opacity:0;transform:translateY(-120px) scale(1);}}
+
+        .yv-breathe{animation:yvBreathe 6s ease-in-out infinite;}
+        .yv-breathe-rev{animation:yvBreathe 5s ease-in-out infinite reverse;}
+        @keyframes yvBreathe{0%,100%{transform:scale(1);opacity:.94;}50%{transform:scale(1.07);opacity:1;}}
+
+        .yv-orbit-slow{animation:yvSpin 15s linear infinite;}
+        .yv-orbit-rev{animation:yvSpin 23s linear infinite reverse;}
+        @keyframes yvSpin{to{transform:rotate(360deg);}}
+
+        .yv-float-a{animation:yvFloatA 9s ease-in-out infinite;}
+        .yv-float-b{animation:yvFloatB 10s ease-in-out infinite;}
+        @keyframes yvFloatA{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+        @keyframes yvFloatB{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
+
+        .yv-bar{height:20%;animation:yvBar 1.8s ease-in-out infinite;}
+        @keyframes yvBar{0%,100%{height:20%;}50%{height:var(--yv-h,80%);}}
+
+        .yv-wnode::after{content:'';position:absolute;inset:-4px;border-radius:9999px;background:#E8753D;opacity:0;animation:yvSeq 3.6s linear infinite;}
+        @keyframes yvSeq{0%{opacity:0;transform:scale(.5);}10%{opacity:.9;transform:scale(1);}30%,100%{opacity:0;}}
+
+        .yv-spark path{animation:yvFlow 4s linear infinite;}
+
+        @media (prefers-reduced-motion: reduce){
+          .yv-conn,.yv-pulse,.yv-particle,.yv-breathe,.yv-breathe-rev,.yv-orbit-slow,.yv-orbit-rev,
+          .yv-float-a,.yv-float-b,.yv-bar,.yv-wnode::after,.yv-spark path{animation:none !important;}
+        }
+      `}</style>
+    </div>
+  );
+}
 
 function Hero() {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 600], [0, 120]);
   const y2 = useTransform(scrollY, [0, 600], [0, -80]);
-
-  // Video ref and state
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const togglePlay = () => {
-    if (!videoRef.current) return;
-    if (videoRef.current.paused) {
-      videoRef.current.play();
-      setIsPlaying(true);
-    } else {
-      videoRef.current.pause();
-      setIsPlaying(false);
-    }
-  };
 
   return (
     <section id="top" className="relative overflow-hidden pt-40 pb-24">
@@ -594,34 +829,12 @@ function Hero() {
           </Reveal>
         </div>
 
-        {/* hero visual banner */}
+        {/* hero visual banner — now a live AI system instead of a video */}
         <Reveal delay={0.2} className="relative mx-auto mt-16 max-w-5xl">
           <div className="glow-ring overflow-hidden rounded-[28px] relative group">
-            {/* Video */}
-            <video
-              ref={videoRef} 
-              className="aspect-[21/9] min-h-[180px] w-full object-cover"
-            >
-              <source src={introVideo} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <AiSystemVisual />
 
-            {/* Overlay – dark gradient + play button on hover */}
-            <div
-              className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center cursor-pointer"
-              onClick={togglePlay}
-            >
-              {/* Centered Play/Pause button */}
-              <div className="bg-white/20 backdrop-blur-md rounded-full p-4 shadow-xl hover:scale-110 transition-transform duration-300">
-                {isPlaying ? (
-                  <Pause className="h-12 w-12 text-white fill-white" />
-                ) : (
-                  <Play className="h-12 w-12 text-white fill-white ml-1" />
-                )}
-              </div>
-            </div>
-
-            {/* Brand Badge – bottom right */}
+            {/* Brand Badge – bottom right, unchanged */}
             <div className="absolute bottom-4 right-4 flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-3 py-2 border border-white/10">
               <YanovixLogo size="nav" />
             </div>
@@ -816,54 +1029,18 @@ function Hero() {
 /* -------------------- trusted -------------------- */
 
 const LOGOS = [
-  {
-    name: "Stripe",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/stripe/stripe-original.svg",
-  },
-  {
-    name: "Vercel",
-    logo: "https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png",
-  },
-  {
-    name: "GitHub",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
-  },
-  {
-    name: "Shopify",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/shopify/shopify-original.svg",
-  },
-  {
-    name: "Slack",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg",
-  },
-  {
-    name: "Figma",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
-  },
-  {
-    name: "Notion",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png",
-  },
-  {
-    name: "Linear",
-    logo: "https://images.seeklogo.com/logo-png/51/2/linear-app-logo-png_seeklogo-511874.png",
-  },
-  {
-    name: "Tailwind",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
-  },
-  {
-    name: "Supabase",
-    logo: "https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-icon.png",
-  },
-  {
-    name: "Prisma",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
-  },
-  {
-    name: "Docker",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-  },
+  { name: "Stripe", logo: "https://cdn.simpleicons.org/stripe" },
+  { name: "Vercel", logo: "https://cdn.simpleicons.org/vercel" },
+  { name: "GitHub", logo: "https://cdn.simpleicons.org/github" },
+  { name: "Shopify", logo: "https://cdn.simpleicons.org/shopify" },
+  { name: "Slack", logo: "https://cdn.simpleicons.org/slack" },
+  { name: "Figma", logo: "https://cdn.simpleicons.org/figma" },
+  { name: "Notion", logo: "https://cdn.simpleicons.org/notion" },
+  { name: "Linear", logo: "https://cdn.simpleicons.org/linear" },
+  { name: "Tailwind", logo: "https://cdn.simpleicons.org/tailwindcss" },
+  { name: "Supabase", logo: "https://cdn.simpleicons.org/supabase" },
+  { name: "Prisma", logo: "https://cdn.simpleicons.org/prisma" },
+  { name: "Docker", logo: "https://cdn.simpleicons.org/docker" },
 ];
 
 function Trusted() {
@@ -1373,6 +1550,20 @@ function Solutions() {
 /* -------------------- visual break -------------------- */
 
 function VisualBreak() {
+  // Video ref and state
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    } else {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
   return (
     <section className="relative py-10 md:py-16">
       <div className="container-x">
@@ -1380,11 +1571,34 @@ function VisualBreak() {
           <Reveal className="md:col-span-7">
             <div className="group relative overflow-hidden rounded-[28px]">
               <div className="glow-ring overflow-hidden rounded-[28px]">
-                <VisualFrame
-                  src={visualVoiceLive}
-                  alt="Voice AI waveform atmosphere"
-                  className="aspect-[16/9] transition-transform duration-700 group-hover:scale-[1.03] md:aspect-[21/10]"
-                />
+                {/* hero visual banner */}
+                <Reveal delay={0.2} className="relative mx-auto mt-16 max-w-5xl">
+                  <div className="glow-ring overflow-hidden rounded-[28px] relative group">
+                    {/* Video */}
+                    <video
+                      ref={videoRef}
+                      className="aspect-[21/9] min-h-[180px] w-full object-cover"
+                    >
+                      <source src={introVideo} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+
+                    {/* Overlay – dark gradient + play button on hover */}
+                    <div
+                      className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center cursor-pointer"
+                      onClick={togglePlay}
+                    >
+                      {/* Centered Play/Pause button */}
+                      <div className="bg-white/20 backdrop-blur-md rounded-full p-2 shadow-xl hover:scale-110 transition-transform duration-300">
+                        {isPlaying ? (
+                          <Pause className="h-7 w-7 text-white fill-white" />
+                        ) : (
+                          <Play className="h-7 w-7 text-white fill-white ml-1" />
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </Reveal>
               </div>
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 flex flex-wrap items-end justify-between gap-3">
@@ -1399,7 +1613,7 @@ function VisualBreak() {
                 <Link
                   to="/"
                   hash="case-studies"
-                  className="pointer-events-auto inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs text-ivory backdrop-blur-md transition hover:bg-ember"
+                  className="pointer-events-auto flex items-center gap-1 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs text-ivory backdrop-blur-md transition hover:bg-ember translate-y-3"
                 >
                   See outcomes <ArrowUpRight className="h-3.5 w-3.5" />
                 </Link>
