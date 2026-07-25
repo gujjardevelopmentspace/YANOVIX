@@ -45,6 +45,7 @@ import {
   Menu,
   ChevronLeft,
   ChevronRight,
+  Pause,
 } from "lucide-react";
 import {
   Accordion,
@@ -97,6 +98,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { toast } from "sonner";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import introVideo from "../assets/video/intro.mp4";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -514,6 +516,22 @@ function Hero() {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 600], [0, 120]);
   const y2 = useTransform(scrollY, [0, 600], [0, -80]);
+
+  // Video ref and state
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    } else {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
   return (
     <section id="top" className="relative overflow-hidden pt-40 pb-24">
       <SectionGlow tone="both" />
@@ -578,12 +596,35 @@ function Hero() {
 
         {/* hero visual banner */}
         <Reveal delay={0.2} className="relative mx-auto mt-16 max-w-5xl">
-          <div className="glow-ring overflow-hidden rounded-[28px]">
-            <VisualFrame
-              src={visualLiveSystems}
-              alt="YANOVIX live systems"
-              className="aspect-[21/9] min-h-[180px]"
-            />
+          <div className="glow-ring overflow-hidden rounded-[28px] relative group">
+            {/* Video */}
+            <video
+              ref={videoRef} 
+              className="aspect-[21/9] min-h-[180px] w-full object-cover"
+            >
+              <source src={introVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
+            {/* Overlay – dark gradient + play button on hover */}
+            <div
+              className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center cursor-pointer"
+              onClick={togglePlay}
+            >
+              {/* Centered Play/Pause button */}
+              <div className="bg-white/20 backdrop-blur-md rounded-full p-4 shadow-xl hover:scale-110 transition-transform duration-300">
+                {isPlaying ? (
+                  <Pause className="h-12 w-12 text-white fill-white" />
+                ) : (
+                  <Play className="h-12 w-12 text-white fill-white ml-1" />
+                )}
+              </div>
+            </div>
+
+            {/* Brand Badge – bottom right */}
+            <div className="absolute bottom-4 right-4 flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-3 py-2 border border-white/10">
+              <YanovixLogo size="nav" />
+            </div>
           </div>
         </Reveal>
 
@@ -1659,7 +1700,7 @@ const REVIEWS = [
     company: "Cloudveil",
     quote:
       "Yanovix took our vague idea and turned it into a production-ready system in weeks. Their team actually understood our stack and didn't try to sell us things we didn't need.",
-    avatar: "SC",
+    avatarUrl: "https://i.pravatar.cc/150?img=1", // female
   },
   {
     name: "Marcus Rivera",
@@ -1667,7 +1708,7 @@ const REVIEWS = [
     company: "Northwind",
     quote:
       "We were drowning in manual data entry. Their automation cut our processing time by 70% and the team was a pleasure to work with.",
-    avatar: "MR",
+    avatarUrl: "https://i.pravatar.cc/150?img=2", // male
   },
   {
     name: "Aisha Patel",
@@ -1675,7 +1716,7 @@ const REVIEWS = [
     company: "Meridian",
     quote:
       "The voice AI they built for our customer support is indistinguishable from our best human agents. Our CSAT scores actually went up.",
-    avatar: "AP",
+    avatarUrl: "https://i.pravatar.cc/150?img=3", // female
   },
   {
     name: "James Okafor",
@@ -1683,7 +1724,7 @@ const REVIEWS = [
     company: "Helix Health",
     quote:
       "Security and compliance were non-negotiable for us. Yanovix delivered both without slowing down. They're now our go-to for AI projects.",
-    avatar: "JO",
+    avatarUrl: "https://i.pravatar.cc/150?img=4", // male
   },
   {
     name: "Elena Vogt",
@@ -1691,7 +1732,7 @@ const REVIEWS = [
     company: "Ironclad",
     quote:
       "Our SDR team was skeptical about AI, but the agent they built booked more meetings than any human in the first month. Now we can't imagine working without it.",
-    avatar: "EV",
+    avatarUrl: "https://i.pravatar.cc/150?img=5", // female
   },
   {
     name: "David Kim",
@@ -1699,7 +1740,7 @@ const REVIEWS = [
     company: "Apex Logistics",
     quote:
       "They connected our TMS and ERP in ways we thought were impossible. The ROI was visible within 30 days.",
-    avatar: "DK",
+    avatarUrl: "https://i.pravatar.cc/150?img=6", // male
   },
   {
     name: "Lina Westerberg",
@@ -1707,7 +1748,7 @@ const REVIEWS = [
     company: "Quorum",
     quote:
       "The recruitment automation they built saved our talent team 15 hours a week. We've already extended our contract.",
-    avatar: "LW",
+    avatarUrl: "https://i.pravatar.cc/150?img=7", // female
   },
   {
     name: "Tomás Silva",
@@ -1715,7 +1756,7 @@ const REVIEWS = [
     company: "Orbit Realty",
     quote:
       "Portal leads now get a response in seconds, not hours. Our agents love the quality of the handoff. It's a game changer.",
-    avatar: "TS",
+    avatarUrl: "https://i.pravatar.cc/150?img=8", // male
   },
 ];
 
@@ -1776,8 +1817,30 @@ function ClientReviews() {
                     className="h-full rounded-2xl border border-ink/10 bg-white p-6 shadow-sm transition-shadow hover:shadow-md md:p-8"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-ink/5 text-lg font-medium text-ink/70">
-                        {review.avatar}
+                      {/* Avatar Image with Fallback */}
+                      <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-ink/5">
+                        <img
+                          src={review.avatarUrl}
+                          alt={review.name}
+                          className="h-full w-full object-cover"
+                          loading="lazy"
+                          onError={(e) => {
+                            // Fallback to initials on error
+                            const target = e.currentTarget;
+                            target.style.display = "none";
+                            const parent = target.parentElement!;
+                            const fallback = document.createElement("span");
+                            fallback.className =
+                              "flex h-full w-full items-center justify-center text-lg font-medium text-ink/70";
+                            fallback.textContent = review.name
+                              .split(" ")
+                              .map((word) => word[0])
+                              .join("")
+                              .slice(0, 2)
+                              .toUpperCase();
+                            parent.appendChild(fallback);
+                          }}
+                        />
                       </div>
                       <div>
                         <div className="font-medium text-ink">{review.name}</div>
