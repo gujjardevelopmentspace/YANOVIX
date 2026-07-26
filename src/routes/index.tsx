@@ -510,7 +510,7 @@ function Nav() {
   );
 }
 
-/* -------------------- hero -------------------- */ 
+/* -------------------- hero -------------------- */
 
 function AiSystemVisual() {
   return (
@@ -545,11 +545,31 @@ function AiSystemVisual() {
         <path id="yvAnalytics" className="yv-conn" d="M605,358 Q605,290 602,232" />
 
         <path className="yv-pulse" d="M195,105 Q400,58 596,214" />
-        <path className="yv-pulse" d="M143,213 Q380,210 596,214" style={{ animationDelay: "-1.4s" }} />
-        <path className="yv-pulse" d="M220,310 Q420,296 596,222" style={{ animationDelay: "-2.6s" }} />
-        <path className="yv-pulse" d="M792,92 Q690,150 606,205" style={{ animationDelay: "-0.8s" }} />
-        <path className="yv-pulse" d="M815,300 Q710,268 610,225" style={{ animationDelay: "-3.4s" }} />
-        <path className="yv-pulse" d="M605,358 Q605,290 602,232" style={{ animationDelay: "-2s" }} />
+        <path
+          className="yv-pulse"
+          d="M143,213 Q380,210 596,214"
+          style={{ animationDelay: "-1.4s" }}
+        />
+        <path
+          className="yv-pulse"
+          d="M220,310 Q420,296 596,222"
+          style={{ animationDelay: "-2.6s" }}
+        />
+        <path
+          className="yv-pulse"
+          d="M792,92 Q690,150 606,205"
+          style={{ animationDelay: "-0.8s" }}
+        />
+        <path
+          className="yv-pulse"
+          d="M815,300 Q710,268 610,225"
+          style={{ animationDelay: "-3.4s" }}
+        />
+        <path
+          className="yv-pulse"
+          d="M605,358 Q605,290 602,232"
+          style={{ animationDelay: "-2s" }}
+        />
 
         <circle r="2.4" fill="#F3EFE7">
           <animateMotion dur="6s" repeatCount="indefinite">
@@ -1021,7 +1041,7 @@ const LOGOS = [
   { name: "Stripe", logo: "https://cdn.simpleicons.org/stripe" },
   { name: "Vercel", logo: "https://cdn.simpleicons.org/vercel" },
   { name: "GitHub", logo: "https://cdn.simpleicons.org/github" },
-  { name: "Shopify", logo: "https://cdn.simpleicons.org/shopify" }, 
+  { name: "Shopify", logo: "https://cdn.simpleicons.org/shopify" },
   { name: "Figma", logo: "https://cdn.simpleicons.org/figma" },
   { name: "Notion", logo: "https://cdn.simpleicons.org/notion" },
   { name: "Linear", logo: "https://cdn.simpleicons.org/linear" },
@@ -1038,7 +1058,7 @@ function Trusted() {
       <div className="container-x">
         <Reveal>
           <p className="text-center text-[11px] uppercase tracking-[0.3em] text-ink/40">
-           The stack we build with
+            The stack we build with
           </p>
         </Reveal>
       </div>
@@ -1471,7 +1491,15 @@ function SolutionVisual({ kind }: { kind: string }) {
 
       {kind === "realestate" && (
         <svg viewBox="0 0 100 100" className="relative h-1/2 w-1/2">
-          <circle cx="50" cy="40" r="26" fill="none" stroke="#7E9C82" strokeWidth="1.5" className="sv-ring" />
+          <circle
+            cx="50"
+            cy="40"
+            r="26"
+            fill="none"
+            stroke="#7E9C82"
+            strokeWidth="1.5"
+            className="sv-ring"
+          />
           <path
             d="M50 20 C64 20 74 31 74 44 C74 62 50 82 50 82 C50 82 26 62 26 44 C26 31 36 20 50 20 Z"
             fill="none"
@@ -1484,8 +1512,26 @@ function SolutionVisual({ kind }: { kind: string }) {
 
       {kind === "salesops" && (
         <svg viewBox="0 0 120 100" className="relative h-2/3 w-2/3">
-          <circle cx="60" cy="50" r="20" fill="none" stroke="#E8753D" strokeWidth="2" className="sv-ring-fast" />
-          <circle cx="60" cy="50" r="32" fill="none" stroke="#F3EFE7" strokeWidth="1" opacity="0.25" className="sv-ring-fast" style={{ animationDelay: "-.6s" }} />
+          <circle
+            cx="60"
+            cy="50"
+            r="20"
+            fill="none"
+            stroke="#E8753D"
+            strokeWidth="2"
+            className="sv-ring-fast"
+          />
+          <circle
+            cx="60"
+            cy="50"
+            r="32"
+            fill="none"
+            stroke="#F3EFE7"
+            strokeWidth="1"
+            opacity="0.25"
+            className="sv-ring-fast"
+            style={{ animationDelay: "-.6s" }}
+          />
           <circle cx="60" cy="50" r="4" fill="#F3EFE7" />
         </svg>
       )}
@@ -1530,17 +1576,58 @@ function SolutionVisual({ kind }: { kind: string }) {
 
       {kind === "ecommerce" && (
         <svg viewBox="0 0 100 100" className="relative h-1/2 w-1/2">
-          <rect x="25" y="35" width="50" height="45" rx="4" fill="none" stroke="#E8753D" strokeWidth="2" />
-          <path d="M35 35 L35 25 A15 15 0 0 1 65 25 L65 35" fill="none" stroke="#F3EFE7" strokeWidth="2" opacity="0.5" />
+          <rect
+            x="25"
+            y="35"
+            width="50"
+            height="45"
+            rx="4"
+            fill="none"
+            stroke="#E8753D"
+            strokeWidth="2"
+          />
+          <path
+            d="M35 35 L35 25 A15 15 0 0 1 65 25 L65 35"
+            fill="none"
+            stroke="#F3EFE7"
+            strokeWidth="2"
+            opacity="0.5"
+          />
           <circle cx="50" cy="57" r="6" fill="#7E9C82" className="sv-dot" />
         </svg>
       )}
 
       {kind === "enterprise" && (
         <svg viewBox="0 0 140 100" className="relative h-2/3 w-3/4">
-          <rect x="15" y="30" width="45" height="40" rx="4" fill="none" stroke="#F3EFE7" strokeWidth="1.5" opacity="0.4" />
-          <rect x="80" y="30" width="45" height="40" rx="4" fill="none" stroke="#F3EFE7" strokeWidth="1.5" opacity="0.4" />
-          <path d="M60 50 H80" stroke="#E8753D" strokeWidth="2" strokeDasharray="4 4" className="sv-flow" />
+          <rect
+            x="15"
+            y="30"
+            width="45"
+            height="40"
+            rx="4"
+            fill="none"
+            stroke="#F3EFE7"
+            strokeWidth="1.5"
+            opacity="0.4"
+          />
+          <rect
+            x="80"
+            y="30"
+            width="45"
+            height="40"
+            rx="4"
+            fill="none"
+            stroke="#F3EFE7"
+            strokeWidth="1.5"
+            opacity="0.4"
+          />
+          <path
+            d="M60 50 H80"
+            stroke="#E8753D"
+            strokeWidth="2"
+            strokeDasharray="4 4"
+            className="sv-flow"
+          />
           <circle cx="60" cy="50" r="3" fill="#E8753D" />
           <circle cx="80" cy="50" r="3" fill="#E8753D" />
         </svg>
@@ -1559,8 +1646,20 @@ function SolutionVisual({ kind }: { kind: string }) {
 
       {kind === "education" && (
         <svg viewBox="0 0 100 100" className="relative h-1/2 w-1/2">
-          <path d="M50 25 L85 40 L50 55 L15 40 Z" fill="none" stroke="#E8753D" strokeWidth="2" strokeLinejoin="round" />
-          <path d="M30 46 V64 Q50 74 70 64 V46" fill="none" stroke="#F3EFE7" strokeWidth="1.5" opacity="0.5" />
+          <path
+            d="M50 25 L85 40 L50 55 L15 40 Z"
+            fill="none"
+            stroke="#E8753D"
+            strokeWidth="2"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M30 46 V64 Q50 74 70 64 V46"
+            fill="none"
+            stroke="#F3EFE7"
+            strokeWidth="1.5"
+            opacity="0.5"
+          />
           <circle cx="50" cy="40" r="2.5" fill="#F3EFE7" className="sv-dot" />
         </svg>
       )}
@@ -2841,8 +2940,8 @@ function Contact() {
                     </div>
                     <h3 className="mt-5 text-serif text-3xl text-ivory">Got it</h3>
                     <p className="mt-3 text-sm leading-relaxed text-ivory/65">
-                      Thanks - we will reply from <span className="text-ivory">{CONTACT_EMAIL}</span>{" "}
-                      within a business day.
+                      Thanks - we will reply from{" "}
+                      <span className="text-ivory">{CONTACT_EMAIL}</span> within a business day.
                     </p>
                     <button
                       type="button"
@@ -2856,15 +2955,14 @@ function Contact() {
                   <div className="rounded-3xl border border-ivory/10 bg-white/[0.04] p-6 backdrop-blur md:p-8">
                     <h3 className="text-serif text-2xl text-ivory">Prefer email?</h3>
                     <p className="mt-3 text-sm leading-relaxed text-ivory/65">Write us here:</p>
-                  <a
+                    <a
                       href={CONTACT_MAIL_URL}
                       target="_blank"
                       rel="noreferrer"
                       className="btn-ember mt-6 flex w-full items-center justify-center gap-2 rounded-full px-5 py-3.5 text-sm font-medium"
                     >
                       <Mail className="h-4 w-4" /> {CONTACT_EMAIL}
-                   
-                  </a>
+                    </a>
                   </div>
                 ) : (
                   <form
@@ -2979,7 +3077,6 @@ function Contact() {
               {/* WhatsApp quick-contact card */}
               <Reveal delay={0.3}>
                 <a
-                
                   href={CONTACT_WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
