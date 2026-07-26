@@ -510,12 +510,11 @@ function Nav() {
   );
 }
 
-/* -------------------- hero -------------------- */
-/* -------------------- hero -------------------- */
+/* -------------------- hero -------------------- */ 
 
 function AiSystemVisual() {
   return (
-    <div className="card-ink relative aspect-[21/9] min-h-[180px] w-full overflow-hidden">
+    <div className="card-ink relative w-full overflow-hidden aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] min-h-[220px]">
       {/* ambient grid + glows, reusing your existing tokens */}
       <div className="grid-ink pointer-events-none absolute inset-0 opacity-40" />
       <div className="glow-sage absolute -left-[8%] -top-[6%] h-[75%] w-[46%] animate-glow-drift" />
@@ -524,7 +523,7 @@ function AiSystemVisual() {
         style={{ animationDelay: "2s" }}
       />
 
-      {/* connecting beams */}
+      {/* connecting beams — stays visible at every size, reads as an ambient energy field even with panels hidden on mobile */}
       <svg
         className="absolute inset-0 h-full w-full"
         viewBox="0 0 1000 429"
@@ -546,31 +545,11 @@ function AiSystemVisual() {
         <path id="yvAnalytics" className="yv-conn" d="M605,358 Q605,290 602,232" />
 
         <path className="yv-pulse" d="M195,105 Q400,58 596,214" />
-        <path
-          className="yv-pulse"
-          d="M143,213 Q380,210 596,214"
-          style={{ animationDelay: "-1.4s" }}
-        />
-        <path
-          className="yv-pulse"
-          d="M220,310 Q420,296 596,222"
-          style={{ animationDelay: "-2.6s" }}
-        />
-        <path
-          className="yv-pulse"
-          d="M792,92 Q690,150 606,205"
-          style={{ animationDelay: "-0.8s" }}
-        />
-        <path
-          className="yv-pulse"
-          d="M815,300 Q710,268 610,225"
-          style={{ animationDelay: "-3.4s" }}
-        />
-        <path
-          className="yv-pulse"
-          d="M605,358 Q605,290 602,232"
-          style={{ animationDelay: "-2s" }}
-        />
+        <path className="yv-pulse" d="M143,213 Q380,210 596,214" style={{ animationDelay: "-1.4s" }} />
+        <path className="yv-pulse" d="M220,310 Q420,296 596,222" style={{ animationDelay: "-2.6s" }} />
+        <path className="yv-pulse" d="M792,92 Q690,150 606,205" style={{ animationDelay: "-0.8s" }} />
+        <path className="yv-pulse" d="M815,300 Q710,268 610,225" style={{ animationDelay: "-3.4s" }} />
+        <path className="yv-pulse" d="M605,358 Q605,290 602,232" style={{ animationDelay: "-2s" }} />
 
         <circle r="2.4" fill="#F3EFE7">
           <animateMotion dur="6s" repeatCount="indefinite">
@@ -604,7 +583,7 @@ function AiSystemVisual() {
         </circle>
       </svg>
 
-      {/* floating ember dust, same feel as your SiteGlow particles */}
+      {/* floating ember dust */}
       {[
         { l: "20%", b: "10%", dur: "9s", delay: "0s" },
         { l: "35%", b: "15%", dur: "11s", delay: "2s" },
@@ -620,15 +599,25 @@ function AiSystemVisual() {
         />
       ))}
 
-      {/* core: real YANOVIX mark, breathing */}
-      <div className="absolute left-[60%] top-1/2 aspect-square w-[19%] -translate-x-1/2 -translate-y-1/2">
+      {/* core: real YANOVIX mark, forced white so it reads on the dark card, wordmark aligned under it */}
+      <div
+        className="absolute left-1/2 top-1/2 aspect-square w-[46%] -translate-x-1/2 -translate-y-1/2
+                   sm:w-[32%] lg:left-[60%] lg:w-[19%]"
+      >
         <div className="absolute inset-0 rounded-full border border-ivory/10" />
         <div className="absolute inset-[14%] rounded-full border border-ember/20" />
         <div className="absolute inset-[28%] rounded-full border border-sage/20" />
         <div className="yv-breathe absolute inset-[8%] rounded-full bg-[radial-gradient(circle,rgba(232,117,61,0.42)_0%,rgba(232,117,61,0.10)_45%,transparent_72%)] blur-[6px]" />
-        <div className="yv-breathe absolute inset-[22%] flex items-center justify-center drop-shadow-[0_0_14px_rgba(232,117,61,0.55)]">
-          <YanovixLogo size="nav" />
+
+        <div className="yv-breathe absolute inset-[20%] flex flex-col items-center justify-center gap-1.5">
+          <div className="w-[56%] drop-shadow-[0_0_14px_rgba(232,117,61,0.55)] [&_svg]:h-auto [&_svg]:w-full [&_svg]:[filter:brightness(0)_invert(1)]">
+            <YanovixLogo size="nav" />
+          </div>
+          <span className="text-[9px] font-medium uppercase leading-none tracking-[0.28em] text-ivory sm:text-[10px]">
+            Yanovix
+          </span>
         </div>
+
         <div className="yv-orbit-slow absolute -inset-[8%] rounded-full">
           <span className="absolute left-1/2 top-0 h-[5px] w-[5px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-ivory shadow-[0_0_6px_1px_rgba(232,117,61,0.35)]" />
         </div>
@@ -637,8 +626,8 @@ function AiSystemVisual() {
         </div>
       </div>
 
-      {/* voice agent */}
-      <div className="yv-float-a absolute left-[10%] top-[16%] w-[14%] rounded-[13px] border border-ivory/8 bg-white/[0.03] p-3 backdrop-blur-md">
+      {/* voice agent — hidden below lg, no room for legible text on phones */}
+      <div className="yv-float-a absolute left-[10%] top-[16%] hidden w-[14%] rounded-[13px] border border-ivory/8 bg-white/[0.03] p-3 backdrop-blur-md lg:block">
         <div className="mb-1.5 flex items-center gap-1.5 text-[9px] uppercase tracking-[0.13em] text-ivory/55">
           <span className="h-[5px] w-[5px] rounded-full bg-ember shadow-[0_0_6px_var(--tw-shadow-color)] shadow-ember/70 animate-pulse" />
           <Phone className="h-2.5 w-2.5" /> Voice Agent
@@ -654,14 +643,14 @@ function AiSystemVisual() {
         </div>
       </div>
 
-      {/* autonomous agent node */}
-      <div className="absolute left-[7%] top-[47%] aspect-square w-[4.6%]">
+      {/* autonomous agent node — small, icon-only, safe to keep on all sizes */}
+      <div className="absolute left-[7%] top-[47%] hidden aspect-square w-[4.6%] sm:block">
         <div className="yv-breathe-rev absolute inset-0 rounded-full border border-sage/30" />
         <div className="yv-breathe absolute inset-[20%] rounded-full bg-[radial-gradient(circle,rgba(126,156,130,0.9),rgba(126,156,130,0.15)_60%,transparent_80%)] shadow-[0_0_16px_4px_rgba(126,156,130,0.35)]" />
       </div>
 
-      {/* workflow automation */}
-      <div className="yv-float-b absolute left-[11%] top-[70%] w-[17%]">
+      {/* workflow automation — hidden below lg */}
+      <div className="yv-float-b absolute left-[11%] top-[70%] hidden w-[17%] lg:block">
         <div className="mb-1.5 flex items-center gap-1.5 text-[9px] uppercase tracking-[0.13em] text-ivory/55">
           <Workflow className="h-2.5 w-2.5" /> Workflow
         </div>
@@ -678,8 +667,8 @@ function AiSystemVisual() {
         </div>
       </div>
 
-      {/* enterprise dashboard, reusing your real metrics */}
-      <div className="yv-float-a absolute right-[8%] top-[13%] w-[17%] rounded-[13px] border border-ivory/8 bg-white/[0.03] p-3 backdrop-blur-md">
+      {/* enterprise dashboard — hidden below lg */}
+      <div className="yv-float-a absolute right-[8%] top-[13%] hidden w-[17%] rounded-[13px] border border-ivory/8 bg-white/[0.03] p-3 backdrop-blur-md lg:block">
         <div className="mb-1.5 flex items-center gap-1.5 text-[9px] uppercase tracking-[0.13em] text-ivory/55">
           <span className="h-[5px] w-[5px] rounded-full bg-ember animate-pulse" />
           <Building2 className="h-2.5 w-2.5" /> Enterprise
@@ -698,15 +687,15 @@ function AiSystemVisual() {
         </div>
       </div>
 
-      {/* cloud infra */}
-      <div className="absolute right-[7%] top-[64%] aspect-[1.3/1] w-[10.5%]">
-        <div className="yv-breathe absolute inset-0 border border-ivory/18 bg-white/[0.03] [clip-path:polygon(25%_6%,75%_6%,100%_50%,75%_94%,25%_94%,0%_50%)] flex items-center justify-center">
+      {/* cloud infra — icon-only, safe to keep from sm up */}
+      <div className="absolute right-[7%] top-[64%] hidden aspect-[1.3/1] w-[10.5%] sm:block">
+        <div className="yv-breathe absolute inset-0 flex items-center justify-center border border-ivory/18 bg-white/[0.03] [clip-path:polygon(25%_6%,75%_6%,100%_50%,75%_94%,25%_94%,0%_50%)]">
           <Cloud className="h-3.5 w-3.5 text-ivory/50" />
         </div>
       </div>
 
-      {/* analytics */}
-      <div className="yv-float-a absolute left-[52%] top-[76%] w-[15%]">
+      {/* analytics — hidden below lg */}
+      <div className="yv-float-a absolute left-[52%] top-[76%] hidden w-[15%] lg:block">
         <div className="mb-1 flex items-center gap-1.5 text-[9px] uppercase tracking-[0.13em] text-ivory/55">
           <LineChart className="h-2.5 w-2.5" /> Analytics
         </div>
@@ -722,7 +711,7 @@ function AiSystemVisual() {
         </svg>
       </div>
 
-      {/* scoped keyframes for the pieces your global CSS doesn't already define */}
+      {/* scoped keyframes */}
       <style>{`
         .yv-conn{fill:none;stroke:url(#yvLineGrad);stroke-width:1.3;opacity:.32;}
         .yv-pulse{fill:none;stroke:#E8753D;stroke-width:1.5;stroke-dasharray:6 220;opacity:.9;
@@ -1750,7 +1739,7 @@ function CaseStudies() {
                     Want something like this? <ArrowUpRight className="h-4 w-4" />
                   </a>
                 </div>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid sm:grid-cols-3 grid-cols-1 gap-3">
                   {c.kpis.map((k, ki) => (
                     <motion.div
                       key={k.l}
@@ -1833,7 +1822,7 @@ function Process() {
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.7 }}
                 className={cn(
-                  "relative grid grid-cols-[48px_1fr] gap-6 md:grid-cols-2",
+                  "relative grid grid-cols-1 gap-6 md:grid-cols-2",
                   i % 2 && "md:[&>*:first-child]:col-start-2",
                 )}
               >
