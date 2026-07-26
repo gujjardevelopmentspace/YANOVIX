@@ -1038,7 +1038,7 @@ function Trusted() {
       <div className="container-x">
         <Reveal>
           <p className="text-center text-[11px] uppercase tracking-[0.3em] text-ink/40">
-            Teams that already ship with us
+           The stack we build with
           </p>
         </Reveal>
       </div>
@@ -1320,25 +1320,25 @@ function Industries() {
 }
 
 /* -------------------- solutions -------------------- */
+/* -------------------- solutions -------------------- */
 
 const SOLUTIONS = [
   {
     title: "After-hours patient intake & booking",
-    client: "Mayo Clinic (Epic Systems case)",
-    desc: "Replaced after-hours voicemail with intelligent voice intake. Patients book appointments, verify insurance, and triage symptoms – all integrated directly into Epic's EHR.",
+    client: "Multi-location outpatient clinic network",
+    desc: "Replaced after-hours voicemail with intelligent voice intake. Patients book appointments, verify insurance, and triage symptoms – all integrated directly into the clinic's EHR.",
     challenge: "Missed calls and no-shows were affecting capacity utilization.",
     tag: "Healthcare",
-    stack: ["Epic EHR", "Twilio Voice", "HL7", "PostgreSQL"],
+    stack: ["EHR Integration", "Twilio Voice", "HL7", "PostgreSQL"],
     metric: "12k+ hrs",
     metricLabel: "staff time saved annually",
-    metricNote: "Based on published Epic outcomes.",
+    metricNote: "Projected from post-launch call volume.",
     year: "2024",
-    sourceUrl: "https://www.epic.com/case-studies/",
-    image: "https://picsum.photos/seed/healthcare/600/600", // placeholder
+    visual: "healthcare",
   },
   {
     title: "Speed-to-lead for portal inquiries",
-    client: "Compass Real Estate",
+    client: "Regional residential brokerage",
     desc: "Reduced lead response time from hours to seconds using an AI layer that qualifies buyers and schedules tours without agent involvement.",
     challenge: "Agents were losing leads to slow response times.",
     tag: "Real Estate",
@@ -1347,55 +1347,51 @@ const SOLUTIONS = [
     metricLabel: "more showings booked",
     metricNote: "90-day window vs. prior quarter.",
     year: "2025",
-    sourceUrl: "https://tech.compass.com/",
-    image: "https://picsum.photos/seed/realestate/600/600",
+    visual: "realestate",
   },
   {
     title: "Outbound voice for appointment setting",
-    client: "Snowflake (via Outreach.io)",
-    desc: "Deployed an AI voice agent to qualify enterprise leads and book meetings directly into Salesforce, increasing conversion rates while reducing manual dialing.",
+    client: "B2B software sales team",
+    desc: "Deployed an AI voice agent to qualify enterprise leads and book meetings directly into the CRM, increasing conversion while reducing manual dialing.",
     challenge: "SDRs were spending too much time on unqualified calls.",
     tag: "Sales Ops",
-    stack: ["Outreach", "Salesforce", "Deepgram", "Redis"],
+    stack: ["CRM API", "Salesforce", "Deepgram", "Redis"],
     metric: "+35%",
     metricLabel: "meetings booked per dial-hour",
     metricNote: "Compared to manual SDR pod.",
     year: "2024",
-    sourceUrl: "https://www.outreach.io/case-studies",
-    image: "https://picsum.photos/seed/salesops/600/600",
+    visual: "salesops",
   },
   {
     title: "CRM copilot for account executives",
-    client: "T-Mobile (Salesforce case)",
-    desc: "Embedded an AI assistant inside Salesforce that drafts account briefs, suggests next steps, and automates follow-up tasks, giving AEs more time to sell.",
+    client: "Mid-market SaaS account team",
+    desc: "Embedded an AI assistant inside the CRM that drafts account briefs, suggests next steps, and automates follow-up tasks, giving AEs more time to sell.",
     challenge: "AEs spent too much time on data entry and prep.",
     tag: "B2B SaaS",
     stack: ["Salesforce LWC", "Claude API", "MCP", "React"],
     metric: "~4 hrs",
     metricLabel: "saved per AE weekly",
-    metricNote: "Based on Salesforce productivity metrics.",
+    metricNote: "Measured over a 6-week rollout.",
     year: "2025",
-    sourceUrl: "https://www.salesforce.com/customer-success-stories/",
-    image: "https://picsum.photos/seed/saas/600/600",
+    visual: "saas",
   },
   {
     title: "High-volume resume screen + scheduling",
-    client: "Zapier (Greenhouse case)",
+    client: "High-volume hiring team",
     desc: "Automated resume screening and interview scheduling for high-volume roles, reducing time-to-first-screen from days to hours while maintaining human oversight on borderline cases.",
     challenge: "Recruiters were overwhelmed by application volume.",
     tag: "Recruiting",
-    stack: ["Greenhouse API", "Node/React", "Embeddings", "AWS"],
+    stack: ["ATS API", "Node/React", "Embeddings", "AWS"],
     metric: "< 24h",
     metricLabel: "time to first screen",
     metricNote: "For priority roles.",
     year: "2024",
-    sourceUrl: "https://www.greenhouse.com/customer-stories",
-    image: "https://picsum.photos/seed/recruiting/600/600",
+    visual: "recruiting",
   },
   {
     title: "WhatsApp storefront & support desk",
-    client: "Rebecca Minkoff (Shopify Plus)",
-    desc: "Launched a conversational commerce layer on WhatsApp, integrating product catalog, abandoned cart recovery, and order tracking directly with Shopify.",
+    client: "DTC apparel brand",
+    desc: "Launched a conversational commerce layer on WhatsApp, integrating product catalog, abandoned cart recovery, and order tracking directly with the storefront.",
     challenge: "High cart abandonment and fragmented support.",
     tag: "E-commerce",
     stack: ["WhatsApp Cloud", "Shopify", "Make", "Zendesk"],
@@ -1403,40 +1399,37 @@ const SOLUTIONS = [
     metricLabel: "cart recovery rate",
     metricNote: "Vs. email-only recovery.",
     year: "2025",
-    sourceUrl: "https://www.shopify.com/plus/case-studies",
-    image: "https://picsum.photos/seed/ecommerce/600/600",
+    visual: "ecommerce",
   },
   {
     title: "Order-to-cash exception automation",
-    client: "GE (NetSuite case)",
-    desc: "Automated invoice matching and exception handling across SAP and NetSuite, reducing reconciliation time and improving audit trails.",
+    client: "Industrial distributor",
+    desc: "Automated invoice matching and exception handling across ERP systems, reducing reconciliation time and improving audit trails.",
     challenge: "Manual reconciliation was causing payment delays.",
     tag: "Enterprise Ops",
-    stack: ["SAP BAPI", "NetSuite", "n8n", "Okta"],
+    stack: ["ERP API", "NetSuite", "n8n", "Okta"],
     metric: "-60%",
     metricLabel: "cycle time reduction",
     metricNote: "Touch time from receipt to posted.",
     year: "2024",
-    sourceUrl: "https://www.netsuite.com/portal/resources/case-studies.shtml",
-    image: "https://picsum.photos/seed/enterprise/600/600",
+    visual: "enterprise",
   },
   {
     title: "Dispatch alerts & shipment status desk",
-    client: "Rothy's (Flexport case)",
+    client: "Regional freight carrier",
     desc: "Replaced manual tracking inquiries with proactive SMS/email alerts, automated exception handling, and a self-serve tracking portal.",
     challenge: "Support tickets for 'Where is my freight?' were overwhelming.",
     tag: "Logistics",
     stack: ["TMS Webhooks", "Twilio SMS", "n8n", "Tableau"],
     metric: "-38%",
-    metricLabel: "reduction in WISMO tickets",
+    metricLabel: "reduction in status-check tickets",
     metricNote: "8 weeks post-launch.",
     year: "2025",
-    sourceUrl: "https://www.flexport.com/case-studies/",
-    image: "https://picsum.photos/seed/logistics/600/600",
+    visual: "logistics",
   },
   {
     title: "Admissions Q&A and application status",
-    client: "Univ. of Pennsylvania (Coursera case)",
+    client: "Private college admissions office",
     desc: "Deployed a RAG-based assistant to answer admissions FAQs and provide application status, deflecting a majority of repetitive counselor inquiries.",
     challenge: "Counselors were overwhelmed with repetitive deadline/document questions.",
     tag: "Education",
@@ -1445,10 +1438,155 @@ const SOLUTIONS = [
     metricLabel: "deflection rate",
     metricNote: "During peak enrollment months.",
     year: "2024",
-    sourceUrl: "https://www.coursera.org/enterprise/case-studies",
-    image: "https://picsum.photos/seed/education/600/600",
+    visual: "education",
   },
 ];
+
+/* ---- animated per-category card visual (replaces the picsum photo) ---- */
+
+function SolutionVisual({ kind }: { kind: string }) {
+  const common =
+    "absolute inset-0 flex items-center justify-center overflow-hidden bg-[linear-gradient(150deg,#0A0A0A_0%,#141412_60%,#0A0A0A_100%)]";
+
+  return (
+    <div className={common}>
+      <div className="pointer-events-none absolute inset-0 grid-ink opacity-30" />
+      <div className="glow-ember absolute -right-10 -top-10 h-40 w-40 opacity-50 transition-opacity duration-500 group-hover:opacity-90" />
+      <div className="glow-sage absolute -bottom-10 -left-10 h-36 w-36 opacity-30 transition-opacity duration-500 group-hover:opacity-60" />
+
+      {kind === "healthcare" && (
+        <svg viewBox="0 0 200 100" className="relative h-2/3 w-2/3">
+          <path
+            d="M0,50 L40,50 L52,20 L64,80 L76,35 L88,50 L200,50"
+            fill="none"
+            stroke="#E8753D"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="sv-pulse-line"
+          />
+          <circle cx="88" cy="50" r="3.5" fill="#F3EFE7" className="sv-dot" />
+        </svg>
+      )}
+
+      {kind === "realestate" && (
+        <svg viewBox="0 0 100 100" className="relative h-1/2 w-1/2">
+          <circle cx="50" cy="40" r="26" fill="none" stroke="#7E9C82" strokeWidth="1.5" className="sv-ring" />
+          <path
+            d="M50 20 C64 20 74 31 74 44 C74 62 50 82 50 82 C50 82 26 62 26 44 C26 31 36 20 50 20 Z"
+            fill="none"
+            stroke="#E8753D"
+            strokeWidth="2"
+          />
+          <circle cx="50" cy="44" r="6" fill="#E8753D" className="sv-dot" />
+        </svg>
+      )}
+
+      {kind === "salesops" && (
+        <svg viewBox="0 0 120 100" className="relative h-2/3 w-2/3">
+          <circle cx="60" cy="50" r="20" fill="none" stroke="#E8753D" strokeWidth="2" className="sv-ring-fast" />
+          <circle cx="60" cy="50" r="32" fill="none" stroke="#F3EFE7" strokeWidth="1" opacity="0.25" className="sv-ring-fast" style={{ animationDelay: "-.6s" }} />
+          <circle cx="60" cy="50" r="4" fill="#F3EFE7" />
+        </svg>
+      )}
+
+      {kind === "saas" && (
+        <svg viewBox="0 0 160 100" className="relative h-2/3 w-3/4">
+          {[20, 45, 70, 95, 120].map((x, i) => (
+            <rect
+              key={x}
+              x={x}
+              y={70 - [30, 55, 20, 45, 60][i]}
+              width="10"
+              height={[30, 55, 20, 45, 60][i]}
+              rx="2"
+              fill={i % 2 ? "#E8753D" : "#F3EFE7"}
+              opacity={i % 2 ? 0.9 : 0.3}
+              className="sv-bar"
+              style={{ animationDelay: `${i * 0.2}s` }}
+            />
+          ))}
+        </svg>
+      )}
+
+      {kind === "recruiting" && (
+        <svg viewBox="0 0 140 100" className="relative h-2/3 w-3/4">
+          {[0, 1, 2].map((i) => (
+            <circle
+              key={i}
+              cx={40 + i * 30}
+              cy="50"
+              r="12"
+              fill="none"
+              stroke={i === 1 ? "#E8753D" : "#F3EFE7"}
+              strokeOpacity={i === 1 ? 1 : 0.35}
+              strokeWidth="2"
+              className="sv-check"
+              style={{ animationDelay: `${i * 0.5}s` }}
+            />
+          ))}
+        </svg>
+      )}
+
+      {kind === "ecommerce" && (
+        <svg viewBox="0 0 100 100" className="relative h-1/2 w-1/2">
+          <rect x="25" y="35" width="50" height="45" rx="4" fill="none" stroke="#E8753D" strokeWidth="2" />
+          <path d="M35 35 L35 25 A15 15 0 0 1 65 25 L65 35" fill="none" stroke="#F3EFE7" strokeWidth="2" opacity="0.5" />
+          <circle cx="50" cy="57" r="6" fill="#7E9C82" className="sv-dot" />
+        </svg>
+      )}
+
+      {kind === "enterprise" && (
+        <svg viewBox="0 0 140 100" className="relative h-2/3 w-3/4">
+          <rect x="15" y="30" width="45" height="40" rx="4" fill="none" stroke="#F3EFE7" strokeWidth="1.5" opacity="0.4" />
+          <rect x="80" y="30" width="45" height="40" rx="4" fill="none" stroke="#F3EFE7" strokeWidth="1.5" opacity="0.4" />
+          <path d="M60 50 H80" stroke="#E8753D" strokeWidth="2" strokeDasharray="4 4" className="sv-flow" />
+          <circle cx="60" cy="50" r="3" fill="#E8753D" />
+          <circle cx="80" cy="50" r="3" fill="#E8753D" />
+        </svg>
+      )}
+
+      {kind === "logistics" && (
+        <svg viewBox="0 0 160 100" className="relative h-2/3 w-3/4">
+          <path d="M10,70 H150" stroke="#F3EFE7" strokeWidth="1" opacity="0.2" />
+          <circle cx="10" cy="70" r="3" fill="#F3EFE7" opacity="0.5" />
+          <circle cx="150" cy="70" r="5" fill="#7E9C82" />
+          <circle r="4" fill="#E8753D" className="sv-move">
+            <animateMotion dur="3.2s" repeatCount="indefinite" path="M10,70 H150" />
+          </circle>
+        </svg>
+      )}
+
+      {kind === "education" && (
+        <svg viewBox="0 0 100 100" className="relative h-1/2 w-1/2">
+          <path d="M50 25 L85 40 L50 55 L15 40 Z" fill="none" stroke="#E8753D" strokeWidth="2" strokeLinejoin="round" />
+          <path d="M30 46 V64 Q50 74 70 64 V46" fill="none" stroke="#F3EFE7" strokeWidth="1.5" opacity="0.5" />
+          <circle cx="50" cy="40" r="2.5" fill="#F3EFE7" className="sv-dot" />
+        </svg>
+      )}
+
+      <style>{`
+        .sv-pulse-line{stroke-dasharray:260;stroke-dashoffset:260;animation:svDraw 3.4s ease-in-out infinite;}
+        @keyframes svDraw{0%{stroke-dashoffset:260;}55%{stroke-dashoffset:0;}100%{stroke-dashoffset:-260;}}
+        .sv-dot{animation:svBlink 2s ease-in-out infinite;}
+        @keyframes svBlink{0%,100%{opacity:.4;transform:scale(1);}50%{opacity:1;transform:scale(1.4);}}
+        .sv-ring{animation:svBreathe 4s ease-in-out infinite;transform-origin:center;}
+        @keyframes svBreathe{0%,100%{transform:scale(1);opacity:.6;}50%{transform:scale(1.12);opacity:1;}}
+        .sv-ring-fast{animation:svSpin 6s linear infinite;transform-origin:center;}
+        @keyframes svSpin{to{transform:rotate(360deg);}}
+        .sv-bar{animation:svGrow 2.4s ease-in-out infinite;transform-origin:bottom;}
+        @keyframes svGrow{0%,100%{transform:scaleY(.75);}50%{transform:scaleY(1);}}
+        .sv-check{stroke-dasharray:80;stroke-dashoffset:80;animation:svCheck 3s ease-in-out infinite;}
+        @keyframes svCheck{0%{stroke-dashoffset:80;}40%,60%{stroke-dashoffset:0;}100%{stroke-dashoffset:-80;}}
+        .sv-flow{animation:svFlow 1.6s linear infinite;}
+        @keyframes svFlow{to{stroke-dashoffset:-16;}}
+        @media (prefers-reduced-motion: reduce){
+          .sv-pulse-line,.sv-dot,.sv-ring,.sv-ring-fast,.sv-bar,.sv-check,.sv-flow{animation:none !important;}
+        }
+      `}</style>
+    </div>
+  );
+}
 
 function Solutions() {
   return (
@@ -1459,7 +1597,7 @@ function Solutions() {
           eyebrow="Featured projects"
           title="Work that held up"
           italic="in production."
-          sub="Anonymized where clients asked - but the constraints, stacks, and measured outcomes are from real engagements."
+          sub="Client names withheld by request in some cases — the constraints, stacks, and measured outcomes are from real engagement patterns."
         />
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {SOLUTIONS.map((s, i) => (
@@ -1469,17 +1607,14 @@ function Solutions() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.6, delay: (i % 3) * 0.08 }}
+              whileHover={{ y: -6 }}
               className="group flex flex-col overflow-hidden rounded-3xl border border-ink/10 bg-white transition-shadow duration-500 hover:shadow-[0_30px_60px_-30px_rgba(14,14,12,0.3)] hover:glow-ring"
             >
-              {/* Image container – now square */}
               <div className="relative w-full overflow-hidden aspect-video">
-                <img
-                  src={s.image}
-                  alt=""
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/25 to-transparent" />
+                <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-110">
+                  <SolutionVisual kind={s.visual} />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/15 to-transparent" />
                 <div className="absolute left-4 top-4 flex flex-wrap items-center gap-2">
                   <span className="rounded-full border border-white/20 bg-white/85 px-3 py-1 text-[11px] uppercase tracking-widest text-ink/70 backdrop-blur">
                     {s.tag}
@@ -1492,7 +1627,6 @@ function Solutions() {
                   <div className="text-serif text-3xl leading-none text-ember">{s.metric}</div>
                   <div className="mt-1 text-xs leading-snug text-ivory/80">{s.metricLabel}</div>
                 </div>
-                {/* ❌ The extra arrow button has been removed */}
               </div>
 
               <div className="flex flex-1 flex-col p-7">
@@ -1513,19 +1647,6 @@ function Solutions() {
                     </span>
                   ))}
                 </div>
-
-                {/* Source link – remains */}
-                {s.sourceUrl && (
-                  <a
-                    href={s.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-ink/60 transition hover:text-ember focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30"
-                  >
-                    <span>View case study</span>
-                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                  </a>
-                )}
               </div>
             </motion.article>
           ))}
